@@ -12,6 +12,7 @@ import appStore from './utils/appStore'
 import Feed from './Feed'
 import Connections from './Connections'
 import Requests from './Requests'
+import Premium from './Premium'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -29,6 +30,7 @@ function App() {
               <Route path='/profile' element={<Profile />} />
               <Route path='/connections' element={<Connections/>} />
               <Route path='/requests' element={<Requests />} />
+              <Route path='/premium' element={<Premium />} />
             </Route>
           </Routes>
 

@@ -3,6 +3,17 @@ import React from 'react'
 const UserCard = ({user}) => {
     console.log("user", user)
     const {firstName, lastName , about} = user
+
+      const handleSendRequest = async (status, userId) => {
+    try {
+      const res = await axios.post(
+     "http://localhost:3001/request/send/" + status + "/" + userId,
+        {},
+        { withCredentials: true }
+      );
+      dispatch(removeUserFromFeed(userId));
+    } catch (err) {}
+  };
     return (
         <div className="card bg-base-300 w-96 shadow-sm">
             <figure className="px-10 pt-10">
@@ -15,8 +26,13 @@ const UserCard = ({user}) => {
                 <h2 className="card-title">{firstName + " " + lastName}</h2>
                 <p>{about}</p>
                 <div className="card-actions justify-center my-4">
-                    <button className="btn btn-primary">Ignore</button>
-                     <button className="btn btn-primary">Interested</button>
+                    <button 
+                    className="btn btn-primary"
+                     onClick={() => handleSendRequest("ignored", _id)}
+                    >Ignore</button>
+                     <button className="btn btn-primary"
+                        onClick={() => handleSendRequest("interested", _id)}
+                     >Interested</button>
                 </div>
             </div>
         </div>
