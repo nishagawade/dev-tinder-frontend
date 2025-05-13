@@ -13,6 +13,7 @@ import Feed from './Feed'
 import Connections from './Connections'
 import Requests from './Requests'
 import Premium from './Premium'
+import Chat from './Chat'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -31,6 +32,7 @@ function App() {
               <Route path='/connections' element={<Connections/>} />
               <Route path='/requests' element={<Requests />} />
               <Route path='/premium' element={<Premium />} />
+               <Route path='/chat/:targetUserId' element={<Chat/>} />
             </Route>
           </Routes>
 

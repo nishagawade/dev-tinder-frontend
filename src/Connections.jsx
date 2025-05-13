@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addConnections } from './utils/connectionSlice'
+import { Link } from 'react-router-dom'
 
 const Connections = () => {
 
@@ -53,8 +54,10 @@ const Connections = () => {
                             <h2 className="font-bold text-xl">
                                 {firstName + " " + lastName}
                             </h2>
+
+                            <Link to={'/chat/' + _id}> <button className='btn btn-primary my-4'>Chat</button></Link>
                           
-                           
+                          
                         </div>
                         {/* <Link to={"/chat/" + _id}>
               <button className="btn btn-primary">Chat</button>
